@@ -1,0 +1,33 @@
+version: '2'
+services:
+    php-httpd:
+        image: php:7.3-apache
+        ports:
+            - 81:80
+        links:
+            - 'mariadb:db'
+        volumes:
+            - "./DocumentRoot:/var/www/html"
+    mariadb:
+        image: mariadb:10.5.2
+        environment:
+            - TZ=Europe/Madrid
+            - MYSQL_ALLOW_EMPTY_PASSWORD=no
+            - MYSQL_ROOT_PASSWORD=rootpwd
+            # El pass tambe serveix per a accedir
+            # al phpmyadmin com a root
+            - MYSQL_USER=testuser
+            # Crea l'user testuser i pass testpassword en tots los permisos per a crear
+            # taules només a la bdd testdb posterior
+            - MYSQL_PASSWORD=testpassword
+            # crea de forma automatica la base de dades testdb
+            - MYSQL_DATABASE=testdb
+        volumes:
+            # Mounting the content of the database inside of a subfolder named mariadb_data
+            - ./mariadb_data:/var/lib/mysql
+    phpmyadmin:
+        image: phpmyadmin/phpmyadmin
+        links:
+            - 'mariadb:db'
+        ports:
+            - 8081:80
