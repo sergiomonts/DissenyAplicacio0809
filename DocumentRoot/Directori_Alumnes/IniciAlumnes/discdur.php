@@ -11,7 +11,7 @@ include('dbconn.php');
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.84.0">
-    <title>Panell de control alumnes</title>
+    <title>Disc Durs Personals</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/dashboard/">
 
@@ -84,7 +84,7 @@ include('dbconn.php');
 
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
       <br>
-      <h2>Taula alumnes</h2>
+      <h2>Disc Durs Personals</h2>
       <div class="table-responsive">
         <table class="table table-striped table-sm">
           <thead>

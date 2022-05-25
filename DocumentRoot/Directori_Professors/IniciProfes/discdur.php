@@ -105,16 +105,16 @@ include('dbconn.php');
 
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
       <br>
-      <h2>Incidencies</h2>
+      <h2>Discs Durs</h2>
       <div class="table-responsive">
         <table class="table table-striped table-sm">
           <thead>
             <tr>
-            <th scope="col">Id Portatil</th>
+            <th scope="col">Id Disc Dur</th>
               <th scope="col">Etiqueta Departament</th>
               <th scope="col">Nom Classe</th>
               <th scope="col">Tipus Material</th>
-              <th scope="col">Model Portatil</th>
+              <th scope="col">Model Disc Dur</th>
             </tr>
           </thead>
           <tbody>
@@ -127,7 +127,7 @@ include('dbconn.php');
             INNER JOIN Ubicacions ON Ubicacions.id = Material.idUbicacio 
             INNER JOIN TipusMaterial ON Material.idTipus = TipusMaterial.id
              WHERE TipusMaterial.origen = 'DEP' AND TipusMaterial.tipus = 'Disc Dur'";
-             
+
             //Emmagatzema la consulta en una variable
             if($result = $conn->query($sql)){
                 //Comprova que el resultat te almenys una linia

@@ -86,7 +86,7 @@ include('/var/www/html/Iniciar_Sessio/login.php');
 
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
       <br>
-      <h2>Taula alumnes</h2>
+      <h2>Portàtils Personals</h2>
       <div class="table-responsive">
         <table class="table table-striped table-sm">
           <thead>
