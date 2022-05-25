@@ -1,20 +1,24 @@
  <?php
 
-
+//Funcio que obté l'ip remota del client
 function obtenirIp(){
+    //Emmagatzema l'ip en una variable
     $ip = $_SERVER['REMOTE_ADDR'];  
     return $ip;
 
     $ip = obtenirIp();
     echo "$ip";
 }
-
+//Funcio que obté l'hora remota del client
 function obtenirHora(){
+    //Defineix zona horaria
     date_default_timezone_set("Europe/Madrid");
+    //Funció per obtenir la data actual i emmagatzema en variable
     $dataActual = date("H:i:s");
     return $dataActual;
 }
 
+//Funcio que determina quin es el navegador del usuari
 function getBrowser($user_agent){
 
 if(strpos($user_agent, 'MSIE') !== FALSE)
@@ -38,33 +42,15 @@ if(strpos($user_agent, 'MSIE') !== FALSE)
 
 }
 
+//Funcio que obté el navegador del usuari
 function obteDades(){
-$user_agent = $_SERVER['HTTP_USER_AGENT'];
+  //Emmagatzema en variable el navegador del client
+  $user_agent = $_SERVER['HTTP_USER_AGENT'];
 
-$navegador = getBrowser($user_agent);
+  //Emmagatzema en variable el resultat de la funcio que determina el navegador.
+  $navegador = getBrowser($user_agent);
  
-//echo $navegador;
-/*
-$ip = obtenirIp();
-//echo $ip;
-
-$hora = obtenirHora();
-//echo $hora;
-*/
-return "$navegador";
-}
-
-$navegador = obteDades();
-echo "$navegador";
-
-$ip = obtenirIp();
-echo "$ip";
-
-$hora = obtenirHora();
-echo "$hora";
-
-function query($conectar, $insertLog){
-  
+  return "$navegador";
 }
 
 ?>

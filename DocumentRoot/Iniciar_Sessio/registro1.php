@@ -20,8 +20,8 @@ include ('login.php');
             <h2>Registro</h2>
             <p class="hint-text">Crea tu cuenta</p>
             <?php
-      echo "$_SESSION['usuarioId']";
-      ?>
+            echo "$_SESSION['usuarioId']";
+            ?>
             <div class="form-group">
                 <div class="row">
                     

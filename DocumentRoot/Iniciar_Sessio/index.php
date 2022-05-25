@@ -1,5 +1,4 @@
 <?php
-//include('security.php');
 session_start();
 ?>
 <!doctype html>
@@ -42,7 +41,7 @@ session_start();
   <body class="text-center">
    
 <main class="form-signin">
-
+<!--Formulari iniciar sessio-->
   <form action="login.php" method="post">
     <img class="mb-4" src="../assets/brand/montsiaLogo.png" alt="" width="150" height="150">
     <h1 class="h3 mb-3 fw-normal">Inicia la sessió</h1>

@@ -98,20 +98,28 @@ include('dbconn.php');
           </thead>
           <tbody>
             <?php
-            //$conn= conn();
+            //Conexio a la base de dades            
             $conn = conn();
+
+            //Guardant en variable la sessio creada al fer login
             $correu = $_SESSION['usuarioAl'];
 
-
+            //Consulta a la base de dades 
             $sql = "SELECT Material.id, TipusMaterial.tipus, TipusMaterial.model, TipusMaterial.origen FROM Material 
                     INNER JOIN Assignacions ON Assignacions.idMaterial = Material.id 
                     INNER JOIN TipusMaterial ON TipusMaterial.id = Material.idTipus 
                     INNER JOIN Usuaris ON Usuaris.id = Assignacions.idAlumne 
                     WHERE TipusMaterial.id = 1 AND Usuaris.correu = '$correu'";
-
+            
+            //Emmagatzema la consulta en una variable
             if($result = $conn->query($sql)){
+
+                //Comprova que el resultat te almenys una linia                
                 if ($result->num_rows > 0){
-                    
+
+                    //Bucle que converteix result en un array d'objectes
+                    //i guarda les files en obj, despres es mostra en 
+                    //columnes d'una taula                    
                     while ($obj = $result->fetch_object()){                        
                       echo "<tr>";
                       echo "<td>$obj->id</td>";
@@ -122,7 +130,7 @@ include('dbconn.php');
                       echo "</tr>";
                     }
                 }
-              }
+            }
             ?>
           </tbody>
         </table>

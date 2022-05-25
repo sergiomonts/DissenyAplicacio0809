@@ -1,4 +1,5 @@
 <?php
+//Funció que conecta a la base de dades
 function conn(){ 
     $db_host="mariadb";
     //$port='3306';

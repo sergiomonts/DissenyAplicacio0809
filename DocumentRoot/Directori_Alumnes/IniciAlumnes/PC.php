@@ -1,7 +1,7 @@
 <?php 
+//Incloent arxius
 include('../security.php');
-//include('dbconn.php');
-include('/var/www/html/Iniciar_Sessio/login.php')
+include('/var/www/html/Iniciar_Sessio/login.php');
 ?>
 <!doctype html>
 <html lang="en">
@@ -52,8 +52,8 @@ include('/var/www/html/Iniciar_Sessio/login.php')
   <div class="navbar-nav">
     <div class="nav-item text-nowrap">
       <form class="user" action="../..\Iniciar_Sessio\logout.php" method="POST">
+        <!--Botó que tanca sessió-->
         <button class="btn-lg btn-block"  type="submit" name="logout_btn" >Tanca Sessio</button>
-      <!--<a class="nav-link px-3" href="../..\Iniciar_Sessio\logout.php">Tanca la sessió</a>-->
       </form>
     </div>
   </div>
@@ -99,20 +99,24 @@ include('/var/www/html/Iniciar_Sessio/login.php')
           </thead>
           <tbody>
             <?php
-            //$conn= conn();
+            //Conexio a la base de dades
             $conn = conn();
+            //Guardant en variable la sessio creada al fer login
             $correu = $_SESSION['usuarioAl'];
-             
+            //Consulta a la base de dades 
             $sql = "SELECT Material.id, TipusMaterial.tipus, TipusMaterial.model, TipusMaterial.origen FROM Material 
                     INNER JOIN Assignacions ON Assignacions.idMaterial = Material.id 
                     INNER JOIN TipusMaterial ON TipusMaterial.id = Material.idTipus 
                     INNER JOIN Usuaris ON Usuaris.id = Assignacions.idAlumne 
                     WHERE TipusMaterial.id = 2 AND Usuaris.correu = '$correu'";
                    
-
+            //Emmagatzema la consulta en una variable
             if($result = $conn->query($sql)){
+                //Comprova que el resultat te almenys una linia
                 if ($result->num_rows > 0){
-                    
+                    //Bucle que converteix result en un array d'objectes
+                    //i guarda les files en obj, despres es mostra en 
+                    //columnes d'una taula
                     while ($obj = $result->fetch_object()){                        
                         echo "<tr>";
                         echo "<td>$obj->id</td>";
