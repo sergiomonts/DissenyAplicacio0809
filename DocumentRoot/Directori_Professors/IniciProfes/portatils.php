@@ -121,7 +121,7 @@ include('dbconn.php');
             <?php
             //Conecta amb la base de dades
             $conn = conn();
-
+ 
             //Consulta a la base de dades
             $sql = "SELECT Material.id, Material.etiquetaDepInf, Ubicacions.nom, TipusMaterial.tipus, TipusMaterial.model FROM Material 
             INNER JOIN Ubicacions ON Ubicacions.id = Material.idUbicacio 

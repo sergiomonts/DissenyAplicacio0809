@@ -110,26 +110,24 @@ include('dbconn.php');
         <table class="table table-striped table-sm">
           <thead>
             <tr>
-              <th scope="col">Id Incidencia</th>
+            <th scope="col">Id Portatil</th>
+              <th scope="col">Etiqueta Departament</th>
+              <th scope="col">Nom Classe</th>
               <th scope="col">Tipus Material</th>
-              <th scope="col">Model</th>
-              <th scope="col">Informació</th>
-              <th scope="col">Id dispositiu</th>
-              <th scope="col">Estat</th>
-              <th scope="col">Data Oberta</th>
-              <th scope="col">Data Tancada</th>
+              <th scope="col">Model Portatil</th>
             </tr>
           </thead>
           <tbody>
             <?php
             //Conexio a la base de dades
             $conn = conn();
+
             //Consulta a la base de dades 
-            $sql = "SELECT Incidencies.id,TipusMaterial.tipus, TipusMaterial.model, 
-            Incidencies.informacio, Incidencies.idDispositiu, Incidencies.idEstat, 
-            Incidencies.dataOberta, Incidencies.dataTancada FROM Incidencies 
-            INNER JOIN TipusMaterial ON TipusMaterial.id = Incidencies.idDispositiu 
-            WHERE Incidencies.idDispositiu = 1;";
+            $sql = "SELECT Material.id, Material.etiquetaDepInf, Ubicacions.nom, TipusMaterial.tipus, TipusMaterial.model FROM Material 
+            INNER JOIN Ubicacions ON Ubicacions.id = Material.idUbicacio 
+            INNER JOIN TipusMaterial ON Material.idTipus = TipusMaterial.id
+             WHERE TipusMaterial.origen = 'DEP' AND TipusMaterial.tipus = 'Disc Dur'";
+             
             //Emmagatzema la consulta en una variable
             if($result = $conn->query($sql)){
                 //Comprova que el resultat te almenys una linia
@@ -141,14 +139,11 @@ include('dbconn.php');
                     while ($obj = $result->fetch_object()){                        
                         echo "<tr>";
                         echo "<td>$obj->id</td>";
+                        echo "<td>$obj->etiquetaDepInf</td>";
+                        echo "<td>$obj->nom</td>";
                         echo "<td>$obj->tipus</td>";
                         echo "<td>$obj->model</td>";
-                        echo "<td>$obj->informacio</td>";
-                        echo "<td>$obj->idDispositiu</td>";
-                        echo "<td>$obj->idEstat</td>";
-                        echo "<td>$obj->dataOberta</td>";
-                        echo "<td>$obj->dataTancada</td>";
-                        echo "</tr>";
+                        echo "</tr>";  
                     }
                 }
               }

@@ -10,7 +10,7 @@ include('dbconn.php');
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.84.0">
-    <title>Panell de control/title>
+    <title>Panell de control</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/dashboard/">
 
@@ -51,7 +51,6 @@ include('dbconn.php');
     <div class="nav-item text-nowrap">
       <form class="user" action="../..\Iniciar_Sessio\logout.php" method="POST">
         <button class="btn-lg btn-block" type="submit" name="logout_btn" >Tanca Sessio</button>
-      <!--<a class="nav-link px-3" href="../..\Iniciar_Sessio\logout.php">Tanca la sessió</a>-->
     </form>
     </div>
   </div>
