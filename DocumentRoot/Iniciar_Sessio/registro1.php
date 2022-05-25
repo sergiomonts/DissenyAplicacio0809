@@ -19,9 +19,6 @@ include ('login.php');
         <form name="form" action="registro.php" method="post" id="formulario">
             <h2>Registro</h2>
             <p class="hint-text">Crea tu cuenta</p>
-            <?php
-            echo "$_SESSION['usuarioId']";
-            ?>
             <div class="form-group">
                 <div class="row">
                     
