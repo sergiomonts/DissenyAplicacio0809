@@ -11,7 +11,7 @@ include('dbconn.php');
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.84.0">
-    <title>Panell de control d'incidencies</title>
+    <title>Panell de control</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/dashboard/">
 
@@ -57,7 +57,7 @@ include('dbconn.php');
     </div>
   </div>
 </header>
-
+<!--Navegador entre Webs-->
 <div class="container-fluid">
   <div class="row">
     <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
@@ -108,7 +108,7 @@ include('dbconn.php');
       <br>
       <h2>Dashboard Professors</h2>
       <div class="table-responsive">
-        Hola
+        Bon dia Professor
       </div>
     </main>
   </div>

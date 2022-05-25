@@ -1,4 +1,5 @@
 <?php 
+//Inclou fitxers php
 include('../security.php');
 include('dbconn.php');
  ?>
@@ -10,7 +11,7 @@ include('dbconn.php');
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.84.0">
-    <title>Panell de control d'incidencies</title>
+    <title>Panell de control</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/dashboard/">
 
@@ -56,7 +57,7 @@ include('dbconn.php');
     </div>
   </div>
 </header>
-
+<!--Navegador entre webs-->
 <div class="container-fluid">
   <div class="row">
     <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
@@ -97,22 +98,19 @@ include('dbconn.php');
               <span data-feather="users"></span>
               Gestió
             </a>
-          </li>
-          
-
-    
+          </li>    
     </nav>
 
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
       <br>
       <h1>Gestió</h1>
       <div class="signup-form" >
+        <!-- Formulari per crear comptes d'usuari -->        
         <form name="form" action="registreAlumne.php" method="post" id="formulario">
             <h3>Registre d'Usuari</h3>
             <p class="hint-text">Crea el Compte</p>
             <div class="form-group">
                 <div class="row"> 
-                    
                     <div class="col">
                         <input type="text" class="form-control" name="nom" id="nom" placeholder="Nom" required="required">
                     </div>
@@ -144,15 +142,19 @@ include('dbconn.php');
             </div>
             <br>
             <div class="form-group">
+                <!--Botó que borra els camps introduits-->
                 <button type="reset" class="btn btn-success btn-lg btn-block">Borrar</button>
+                <!--Botó que envia el formulari-->
                 <button type="submit" class="btn btn-success btn-lg btn-block" id="submit">Registate Ahora</button>
                 
             </div>
         </form>
     </div>
     <br>
+    
 
     <div class="signup-form" >
+      <!-- Formulari per crear incidencies -->
         <form name="form" action="registreIncidencia.php" method="post" id="formulario">
             <h3>Registre Incidencia</h3>
             <p class="hint-text">Crea l'incidencia</p>
@@ -161,8 +163,7 @@ include('dbconn.php');
                 <input type="text" class="form-control" name="informacio" id="informacio" placeholder="Informació" required="required">
             </div>
             <br>
-                <div class="row">
-                    
+                <div class="row">                    
                     <div class="col">
                         <input type="text" class="form-control" name="idAlumne" id="idAlumne" placeholder="Id d'Alumne" required="required">
                     </div>
@@ -182,13 +183,16 @@ include('dbconn.php');
             
             <br>
             <div class="form-group">
-                <button type="reset" class="btn btn-success btn-lg btn-block">Borrar</button>
+                <!--Botó que borra els camps introduits-->
+                <button type="reset" class="btn btn-success btn-lg btn-block">Borrar</button> 
+                <!--Botó que envia el formulari-->
                 <button type="submit" class="btn btn-success btn-lg btn-block" id="submit">Registrar Incidencia</button>
             </div>
             <br>
         </form>
     </div> 
     <div class="signup-form" >
+        <!--Formulari per crear material-->
         <form name="form" action="registreMaterial.php" method="post" id="formulario">
             <h3>Registre Material</h3>
             <p class="hint-text">Crea el Material</p>
@@ -231,7 +235,9 @@ include('dbconn.php');
             
             <br>
             <div class="form-group">
+                <!--Botó que borra els camps introduits-->
                 <button type="reset" class="btn btn-success btn-lg btn-block">Borrar</button>
+                <!--Botó que envia el formulari-->
                 <button type="submit" class="btn btn-success btn-lg btn-block" id="submit">Registrar Material</button>
             </div>
             <br>
@@ -240,8 +246,6 @@ include('dbconn.php');
     </main>
   </div>
     </div>
-    <!--<script src="../assets/dist/js/bootstrap.bundle.min.js"></script>-->
-
       <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js" integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha" crossorigin="anonymous"></script><script src="dashboard.js"></script>
   </body>
 </html>

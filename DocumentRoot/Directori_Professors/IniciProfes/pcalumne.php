@@ -1,4 +1,5 @@
 <?php 
+//Inclou fitxers php
 include('../security.php');
 include('dbconn.php');
  ?>
@@ -10,7 +11,7 @@ include('dbconn.php');
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.84.0">
-    <title>Panell de control d'incidencies</title>
+    <title>Panell de control</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/dashboard/">
 
@@ -51,12 +52,11 @@ include('dbconn.php');
     <div class="nav-item text-nowrap">
       <form class="user" action="../..\Iniciar_Sessio\logout.php" method="POST">
         <button class="btn-lg btn-block" type="submit" name="logout_btn" >Tanca Sessio</button>
-      <!--<a class="nav-link px-3" href="../..\Iniciar_Sessio\logout.php">Tanca la sessió</a>-->
     </form>
     </div>
   </div>
 </header>
-
+<!--Naegador Web-->
 <div class="container-fluid">
   <div class="row">
     <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
@@ -115,28 +115,26 @@ include('dbconn.php');
               <th scope="col">Tipus Ordinador</th>
               <th scope="col">Model Ordinador</th>
               <th scope="col">Data Inici</th>
-              <th scope="col">Data Final</th>
-              <!--SELECT Usuaris.nom, Usuaris.cognom1, TipusMaterial.tipus, TipusMaterial.model, Assignacions.dataInici, Assignacions.dataFinal FROM Usuaris 
-              INNER JOIN Assignacions ON Assignacions.idAlumne = Usuaris.id 
-              INNER JOIN Material ON Assignacions.idMaterial = Material.id 
-              INNER JOIN TipusMaterial on Material.idTipus = TipusMaterial.id 
-              WHERE TipusMaterial.tipus = "Portatil";-->           
+              <th scope="col">Data Final</th>          
             </tr>
           </thead>
           <tbody>
             <?php
-            
+            //Conexio a la base de dades
             $conn = conn();
-
+            //Consulta a la base de dades
             $sql = "SELECT Usuaris.nom, Usuaris.cognom1, TipusMaterial.tipus, TipusMaterial.model, Assignacions.dataInici, Assignacions.dataFinal FROM Usuaris 
             INNER JOIN Assignacions ON Assignacions.idAlumne = Usuaris.id 
             INNER JOIN Material ON Assignacions.idMaterial = Material.id 
             INNER JOIN TipusMaterial on Material.idTipus = TipusMaterial.id 
             WHERE TipusMaterial.tipus = 'Portatil' OR TipusMaterial.tipus = 'SobreTaula' ";
-
+            //Emmagatzema la consulta en una variable
             if($result = $conn->query($sql)){
+                //Comprova que el resultat te almenys una linia
                 if ($result->num_rows > 0){
-                    
+                    //Bucle que converteix result en un array d'objectes
+                    //i guarda les files en obj, despres es mostra en 
+                    //columnes d'una taula
                     while ($obj = $result->fetch_object()){                        
                         echo "<tr>";
                         echo "<td>$obj->nom</td>";

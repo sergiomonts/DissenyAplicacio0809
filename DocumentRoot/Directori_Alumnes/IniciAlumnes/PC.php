@@ -58,7 +58,7 @@ include('/var/www/html/Iniciar_Sessio/login.php');
     </div>
   </div>
 </header>
-
+<!--Navegador entre clases-->
 <div class="container-fluid">
   <div class="row">
     <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">

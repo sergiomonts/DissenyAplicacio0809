@@ -10,7 +10,7 @@ include('dbconn.php');
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.84.0">
-    <title>Panell de control d'incidencies</title>
+    <title>Panell de control/title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/dashboard/">
 
@@ -56,7 +56,7 @@ include('dbconn.php');
     </div>
   </div>
 </header>
-
+<!--Navegador entre Webs-->
 <div class="container-fluid">
   <div class="row">
     <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
@@ -97,10 +97,7 @@ include('dbconn.php');
               <span data-feather="users"></span>
               Gestió
             </a>
-          </li>
-          
-
-    
+          </li>    
     </nav>
 
     
@@ -131,15 +128,22 @@ include('dbconn.php');
           </thead>
           <tbody>
             <?php
-
+              //Conexio a la base de dades
               $conn = conn();
+              //Agafa la variable pasada per URL desde el fitxer incidencies.php
               $id = $_GET['id'];
 
+              //Consulta a la base de dades
               $sql = "SELECT * FROM Incidencies WHERE Incidencies.id = '$id'";
 
+              //Emmagatzema la consulta en una variable
               if($result = $conn->query($sql)){
+                  //Comprova que el resultat te almenys una linia
                   if ($result->num_rows > 0){
-                      
+
+                      //Bucle que converteix result en un array d'objectes
+                      //i guarda les files en obj, despres es mostra en 
+                      //columnes d'una taula  
                       while ($obj = $result->fetch_object()){                        
                         echo "<tr>";
                         echo "<td>$obj->id</td>";
@@ -149,10 +153,6 @@ include('dbconn.php');
                         echo "<td>$obj->idAlumne</td>";
                         echo "<td>$obj->idDispositiu</td>";
                         echo "<td>$obj->idEstat</td>";
-                        
-                        ?>
-                    
-                        <?php
                         echo "</tr>";
                     }
                   }
@@ -191,7 +191,9 @@ include('dbconn.php');
             
             <br>
             <div class="form-group">
+              <!--Boto que borra el formulari-->
                 <button type="reset" class="btn btn-success btn-lg btn-block">Borrar</button>
+                <!--Boto que envia el formulari-->
                 <button type="submit" class="btn btn-success btn-lg btn-block" id="submit">Modificar Incidencia</button>
             </div>
             <br>

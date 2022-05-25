@@ -10,7 +10,7 @@ include('dbconn.php');
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.84.0">
-    <title>Panell de control d'incidencies</title>
+    <title>Panell de control</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/dashboard/">
 
@@ -56,7 +56,7 @@ include('dbconn.php');
     </div>
   </div>
 </header>
-
+<!--Navegador entre Webs-->
 <div class="container-fluid">
   <div class="row">
     <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
@@ -119,18 +119,21 @@ include('dbconn.php');
           </thead>
           <tbody>
             <?php
+            //Conecta amb la base de dades
             $conn = conn();
 
+            //Consulta a la base de dades
             $sql = "SELECT Material.id, Material.etiquetaDepInf, Ubicacions.nom, TipusMaterial.tipus, TipusMaterial.model FROM Material 
             INNER JOIN Ubicacions ON Ubicacions.id = Material.idUbicacio 
             INNER JOIN TipusMaterial ON Material.idTipus = TipusMaterial.id
              WHERE TipusMaterial.origen = 'DEP' AND TipusMaterial.tipus = 'Portatil'";
-            /**/
-
-
+            //Emmagatzema la consulta en una variable
             if($result = $conn->query($sql)){
+                //Comprova que el resultat te almenys una linia
                 if ($result->num_rows > 0){
-                    
+                    //Bucle que converteix result en un array d'objectes
+                    //i guarda les files en obj, despres es mostra en 
+                    //columnes d'una taula
                     while ($obj = $result->fetch_object()){                        
                         echo "<tr>";
                         echo "<td>$obj->id</td>";

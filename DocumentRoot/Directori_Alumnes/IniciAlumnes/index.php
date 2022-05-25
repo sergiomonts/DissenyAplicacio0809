@@ -50,13 +50,14 @@ include('dbconn.php');
   <input class="form-control form-control-dark w-100" type="text" placeholder="Buscar" aria-label="Search">
   <div class="navbar-nav">
     <div class="nav-item text-nowrap">
+      <!--Boton logout-->
       <form class="user" action="../..\Iniciar_Sessio\logout.php" method="POST">
         <button class="btn-lg btn-block"  type="submit" name="logout_btn" >Tanca Sessio</button>
       </form>
     </div>
   </div>
 </header>
-
+<!--Navegador que canvia de pagines-->
 <div class="container-fluid">
   <div class="row">
     <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">

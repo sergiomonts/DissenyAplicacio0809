@@ -1,4 +1,5 @@
 <?php 
+//Inclou arxius php
 include('../security.php');
 include('dbconn.php');
  ?>
@@ -10,7 +11,7 @@ include('dbconn.php');
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.84.0">
-    <title>Panell de control d'incidencies</title>
+    <title>Panell de control</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/dashboard/">
 
@@ -50,13 +51,13 @@ include('dbconn.php');
   <div class="navbar-nav">
     <div class="nav-item text-nowrap">
       <form class="user" action="../..\Iniciar_Sessio\logout.php" method="POST">
+        <!--Botó que tanca sessio-->
         <button class="btn-lg btn-block" type="submit" name="logout_btn" >Tanca Sessio</button>
-      <!--<a class="nav-link px-3" href="../..\Iniciar_Sessio\logout.php">Tanca la sessió</a>-->
     </form>
     </div>
   </div>
 </header>
-
+<!--Navegador entre pagines-->
 <div class="container-fluid">
   <div class="row">
     <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
@@ -122,14 +123,18 @@ include('dbconn.php');
           </thead>
           <tbody>
             <?php
-
+            //Conexio a la base de dades
             $conn = conn();
-
+            //Consulta a la base de dades 
             $sql = "SELECT * FROM Incidencies";
-
+            //Emmagatzema la consulta en una variable
             if($result = $conn->query($sql)){
+                //Comprova que el resultat te almenys una linia
                 if ($result->num_rows > 0){
-                    
+
+                    //Bucle que converteix result en un array d'objectes
+                    //i guarda les files en obj, despres es mostra en 
+                    //columnes d'una taula                    
                     while ($obj = $result->fetch_object()){                        
                       echo "<tr>";
                       echo "<td>$obj->id</td>";
@@ -139,8 +144,9 @@ include('dbconn.php');
                       echo "<td>$obj->idAlumne</td>";
                       echo "<td>$obj->idDispositiu</td>";
                       echo "<td>$obj->idEstat</td>";
-                      
                       ?>
+                      <!--Envia una variable per URL, en aquest cas l'id del usuari-->
+                      <!--Redirigeix al document que permer fer updates en la informació de la BD-->
                       <div>
                       <td><a href="updateIncidencies.php?id=<?php echo "$obj->id";?>">Editar</a></td>
                       </div>

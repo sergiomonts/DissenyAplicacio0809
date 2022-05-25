@@ -1,9 +1,8 @@
 <?php
+//Inicia la sessió
 session_start();
-
+//Rep totes les dades del formulari
 include_once('dbconn.php');
-//Recive todos los datos del formulario.
-//$id =$_POST['id'];
 $id = $_POST['id'];
 $informacio = $_POST['informacio'];
 $idAlumne = $_POST['idAlumne'];
@@ -13,11 +12,10 @@ $dataOberta = $_POST['dataOberta'];
 $dataTancada = $_POST['dataTancada'];
 
 
- 
+//Conecta amb la base de dades
 $conectar = conn();
 
-//$id = $_GET['id'];
-
+//Emmagatzema en variable la consulta a la BD
 $sql="UPDATE `Incidencies` SET `informacio` = '$informacio'
 , `dataOberta` = '$dataOberta'
 , `dataTancada` = '$dataTancada'
@@ -26,11 +24,7 @@ $sql="UPDATE `Incidencies` SET `informacio` = '$informacio'
 , `idEstat` = '$idEstat' 
 WHERE `Incidencies`.`id` = '$id'";
 
-/*$sql = "INSERT INTO `Incidencies` (`informacio`, `dataOberta`,`dataTancada`, `idAlumne`, `idDispositiu`, `idEstat`)
- VALUES ('$informacio', '$dataOberta', '$dataTancada' '$idAlumne', '$idDispositiu', '$idEstat')";*/
- 
- //$result = mysqli_query($conectar , $sql)or trigger_error("Error".mysqli_error( $conectar), E_USER_ERROR);
- 
+//Executa la consulta en aquest cas un update. 
  if ($result =mysqli_query($conectar , $sql)){
     header('Location:incidencies.php');
  }else{
