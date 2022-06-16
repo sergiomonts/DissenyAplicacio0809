@@ -24,7 +24,6 @@ $sql = "INSERT INTO `Usuaris` (`nom`, `cognom1`, `cognom2`, `correu`, `grupClass
   trigger_error("Error".mysqli_error( $conectar), E_USER_ERROR);
 }
  
- 
 ?>
  
  
