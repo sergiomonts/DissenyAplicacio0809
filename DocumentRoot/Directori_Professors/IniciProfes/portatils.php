@@ -139,7 +139,7 @@ include('dbconn.php');
                         echo "<td>$obj->id</td>";
                         echo "<td>$obj->etiquetaDepInf</td>";
                         echo "<td>$obj->nom</td>";
-                        echo "<td>$obj->tipus</td>";
+                        echo "<td>".utf8_decode($obj->tipus)."</td>";
                         echo "<td>$obj->model</td>";
                         echo "</tr>";                      
                     }

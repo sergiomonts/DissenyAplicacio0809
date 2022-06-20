@@ -126,7 +126,6 @@ include('dbconn.php');
                       echo "<td>$obj->tipus</td>";
                       echo "<td>$obj->model</td>";
                       echo "<td>$obj->origen</td>";
-                      echo "<td>$obj->idEstat</td>";
                       echo "</tr>";
                     }
                 }

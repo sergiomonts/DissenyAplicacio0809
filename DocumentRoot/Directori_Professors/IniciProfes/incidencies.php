@@ -3,6 +3,7 @@
 include('../security.php');
 include('dbconn.php');
  ?>
+
 <!doctype html>
  <html lang="en">
   <head>
@@ -138,7 +139,7 @@ include('dbconn.php');
                     while ($obj = $result->fetch_object()){                        
                       echo "<tr>";
                       echo "<td>$obj->id</td>";
-                      echo "<td>$obj->informacio</td>";
+                      echo "<td>".utf8_decode($obj->informacio)."</td>";
                       echo "<td>$obj->dataOberta</td>";
                       echo "<td>$obj->dataTancada</td>";
                       echo "<td>$obj->idAlumne</td>";

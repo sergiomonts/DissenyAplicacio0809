@@ -1,7 +1,7 @@
-<?php 
+<?php
 //Incloent arxius
-include('../security.php');
-include('/var/www/html/Iniciar_Sessio/login.php');
+include_once('../security.php');
+include_once('dbconn.php');
 ?>
 <!doctype html>
 <html lang="en">

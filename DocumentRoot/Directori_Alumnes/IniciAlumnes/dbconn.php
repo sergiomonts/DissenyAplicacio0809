@@ -3,11 +3,11 @@
 function conn(){ 
     $db_host="mariadb";
     //$port='3306';
-    $db="Institut";
+    $db="institut";
     $user="root";
-    $pass="rootpwd";
+    $pass="";
 
-    $conn = mysqli_connect("mariadb", $user, $pass, $db);
+    $conn = mysqli_connect("localhost", $user, $pass, $db);
     return $conn; 
 }
 

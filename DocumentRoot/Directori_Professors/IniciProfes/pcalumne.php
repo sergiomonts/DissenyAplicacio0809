@@ -137,9 +137,9 @@ include('dbconn.php');
                     //columnes d'una taula
                     while ($obj = $result->fetch_object()){                        
                         echo "<tr>";
-                        echo "<td>$obj->nom</td>";
-                        echo "<td>$obj->cognom1</td>";
-                        echo "<td>$obj->tipus</td>";
+                        echo "<td>".utf8_decode($obj->nom)."</td>";
+                        echo "<td>".utf8_decode($obj->cognom1)."</td>";
+                        echo "<td>".utf8_decode($obj->tipus)."</td>";
                         echo "<td>$obj->model</td>";
                         echo "<td>$obj->dataInici</td>";
                         echo "<td>$obj->dataFinal</td>";

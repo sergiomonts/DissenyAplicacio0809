@@ -73,7 +73,7 @@ if ($result = $conectar->query($sql)){
                         if ($insert = mysqli_query($conectar , $insertLog)){
                         
                         //Redirecció cap a la pagina inici alumnes
-                        header('Location:/Directori_Alumnes/IniciAlumnes/index.php');
+                        header('Location:..\Directori_Alumnes/IniciAlumnes/index.php');
 
                         //Crea sessions i les assigna una variable
                         $_SESSION['usuarioAl'] = $mailEntra;
@@ -109,7 +109,7 @@ if ($result = $conectar->query($sql)){
                             if ($insert = mysqli_query($conectar , $insertLog)){
 
                                 //Redirecció cap a la pagina inici profes
-                                header('Location:/Directori_Professors/IniciProfes/index.php');
+                                header('Location:../Directori_Professors\IniciProfes\index.php');
                             
                                 //Crea sessions i les assigna una variable
                                 $_SESSION['usuarioProf'] = $mailEntra;
